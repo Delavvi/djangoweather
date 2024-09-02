@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Weather Update</title>
+    <style type="text/css">
+      body { background-color: #f0f0f0; font-family: Arial, sans-serif; }
+      .container { background-color: #ffffff; border-radius: 8px; padding: 20px; max-width: 600px; margin: 20px auto; }
+      .title { text-align: center; font-size: 24px; font-weight: bold; }
+      .icon { display: block; margin: 20px auto; }
+      .description, .temperature { text-align: center; font-size: 20px; }
+      .temperature { font-size: 18px; }
+      .footer { text-align: center; font-size: 14px; color: #888888; padding: 10px 0; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      {% for weather in data %}
+      <div class="title">
+        Weather Update for {{weather.city}} {{weather.country}}
+        </div>
+        <img src="http://openweathermap.org/img/wn/{{weather.icon}}@2x.png" alt="Weather Icon" width="100px" class="icon">
+        <div class="description">
+          {{weather.description}}
+        </div>
+        <div class="temperature">
+          Temperature: {{weather.temperature}}°C
+        </div>
+      {% endfor %}
+    </div>
+    <div class="footer">
+      © 2024 Django Weather.
+    </div>
+  </body>
+</html>
